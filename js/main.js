@@ -32,7 +32,6 @@ TABLE OF CONTENT
 ==============================================
 */
 
-
 "use strict";
 
 
@@ -42,7 +41,76 @@ $('#preloader').fadeOut('normall', function () {
 
 
 $(document).ready(function () {
-
+(function ($) {
+    'use strict';
+    /*==================================================================
+        [ Daterangepicker ]*/
+    try {
+        $('.js-datepicker').daterangepicker({
+            "singleDatePicker": true,
+            "showDropdowns": true,
+            "autoUpdateInput": false,
+            "minDate":new Date(),
+            locale: {
+                format: 'DD-MM-YYYY'
+            },
+        });
+    
+        var myCalendar = $('.js-datepicker');
+        var isClick = 0;
+    
+        $(window).on('click',function(){
+            isClick = 0;
+        });
+    
+        $(myCalendar).on('apply.daterangepicker',function(ev, picker){
+            isClick = 0;
+            $(this).val(picker.startDate.format('DD-MM-YYYY'));
+    
+        });
+    
+        $('.js-btn-calendar').on('click',function(e){
+            e.stopPropagation();
+    
+            if(isClick === 1) isClick = 0;
+            else if(isClick === 0) isClick = 1;
+    
+            if (isClick === 1) {
+                myCalendar.focus();
+            }
+        });
+    
+        $(myCalendar).on('click',function(e){
+            e.stopPropagation();
+            isClick = 1;
+        });
+    
+        $('.daterangepicker').on('click',function(e){
+            e.stopPropagation();
+        });
+    
+    
+    } catch(er) {console.log(er);}
+    /*[ Select 2 Config ]
+        ===========================================================*/
+    
+    try {
+        var selectSimple = $('.js-select-simple');
+    
+        selectSimple.each(function () {
+            var that = $(this);
+            var selectBox = that.find('select');
+            var selectDropdown = that.find('.select-dropdown-1');
+            selectBox.select2({
+                dropdownParent: selectDropdown
+            });
+        });
+    
+    } catch (err) {
+        console.log(err);
+    }
+    
+})(jQuery);
 
   /*------------------------------------
       1. Owl Carousel
@@ -84,10 +152,44 @@ $(document).ready(function () {
   Testmonials carousel 2
   -----------------------*/
   $('#testmonials-carousel-2').owlCarousel({
-    loop: false,
-    smartSpeed: 850,
-    responsiveClass: true,
+    loop: true,
     nav: true,
+    responsiveClass: true,
+    smartSpeed: 1000,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+    responsive: {
+      0: {
+        items: 1,
+        nav: false,
+        dots: true,
+        margin: 30,
+      },
+      600: {
+        items: 2,
+        nav: false,
+        dots: true,
+        margin: 0,
+      },
+      1000: {
+        items: 3,
+        dots: false,
+        margin: 0,
+      }
+    }
+  })
+
+
+  $('#testmonials-carousel-3').owlCarousel({
+    loop: true,
+    nav: true,
+    responsiveClass: true,
+    smartSpeed: 1000,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
     navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
     responsive: {
       0: {
@@ -233,34 +335,6 @@ $(document).ready(function () {
   })
 
 
-  /*---------------------
-  Blog Grid carousel
-  -----------------------*/
-  $('#blog-grid').owlCarousel({
-    loop: false,
-    dots: true,
-    nav: false,
-    smartSpeed: 850,
-    autoplay: true,
-    autoplayTimeout: 2500,
-    responsiveClass: true,
-    autoplayHoverPause: false,
-    responsive: {
-      0: {
-        items: 1,
-        margin: 0,
-      },
-      600: {
-        items: 2,
-        margin: 0,
-      },
-      1000: {
-        items: 3,
-        margin: 0,
-      }
-    }
-  })
-
 
   /*---------------------
   Clients carousel
@@ -268,28 +342,195 @@ $(document).ready(function () {
 
   $('#clients').owlCarousel({
     loop: true,
-    nav: false,
+    nav: true,
+    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
     dots: false,
-    smartSpeed: 850,
     autoplay: true,
+    smartSpeed:1000,
     autoplayTimeout: 3000,
     responsiveClass: true,
-    autoplayHoverPause: false,
+    autoplayHoverPause: true,
     responsive: {
       0: {
         items: 2,
         margin: 50,
       },
-      600: {
+      500: {
         items: 3,
         margin: 30,
       },
+      800: {
+        items: 4,
+        margin: 30,
+      },
       1000: {
-        items: 6,
+        items: 5,
         margin: 40,
       }
     }
   })
+
+
+ $('#clients-about').owlCarousel({
+    loop: true,
+    nav: true,
+    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+    dots: false,
+    autoplay: true,
+    smartSpeed:1500,
+    autoplayTimeout: 1500,
+    slideTransition: 'linear',
+    responsiveClass: true,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 2,
+        margin: 50,
+      },
+      500: {
+        items: 3,
+        margin: 30,
+      },
+      800: {
+        items: 4,
+        margin: 30,
+      },
+      1000: {
+        items: 5,
+        margin: 40,
+      }
+    }
+  })
+
+  $('#clients-faq').owlCarousel({
+    loop: true,
+    // nav: true,
+    // navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+    dots: false,
+    autoplay: true,
+    smartSpeed:1500,
+    autoplayTimeout: 1500,
+    slideTransition: 'linear',
+    responsiveClass: true,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 2,
+        margin: 50,
+      },
+      500: {
+        items: 3,
+        margin: 30,
+      },
+      800: {
+        items: 4,
+        margin: 30,
+      },
+      1000: {
+        items: 5,
+        margin: 40,
+      }
+    }
+  })
+
+
+
+    $('#team-support').owlCarousel({
+    loop: true,
+    nav: true,
+    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+    dots: false,
+    autoplay: true,
+    smartSpeed:1000,
+    autoplayTimeout: 3000,
+    responsiveClass: true,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 2,
+        margin: 50,
+      },
+      500: {
+        items: 3,
+        margin: 30,
+      },
+      800: {
+        items: 4,
+        margin: 30,
+      },
+      1000: {
+        items: 5,
+        margin: 70,
+      }
+    }
+  })
+
+
+        $('#team-admin').owlCarousel({
+    loop: true,
+    nav: true,
+    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+    dots: false,
+    autoplay: false,
+    smartSpeed:1000,
+    autoplayTimeout: 3000,
+    responsiveClass: true,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 2,
+        margin: 50,
+      },
+      500: {
+        items: 3,
+        margin: 30,
+      },
+      800: {
+        items: 2,
+        margin: 30,
+      },
+      1000: {
+        items: 3,
+        margin: 320,
+      }
+    }
+  })
+
+
+
+
+    $('#team-dev').owlCarousel({
+    loop: true,
+    nav: true,
+    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+    dots: false,
+    autoplay: true,
+    smartSpeed:1000,
+    autoplayTimeout: 3000,
+    responsiveClass: true,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 2,
+        margin: 50,
+      },
+      500: {
+        items: 3,
+        margin: 30,
+      },
+      800: {
+        items: 4,
+        margin: 30,
+      },
+      1000: {
+        items: 5,
+        margin: 70,
+      }
+    }
+  })
+
+
+
 
 
   /*---------------------
@@ -324,7 +565,7 @@ $(document).ready(function () {
 
   $('.countup').counterUp({
     delay: 25,
-    time: 2000
+    time: 1500
   });
 
 
@@ -588,7 +829,7 @@ $(document).ready(function () {
   /*---------------------
   Fixed Nav
   -----------------------*/
-  $("#navigation1").navigation();
+  $("#navigation1c").navigation();
   $("#navigation1").fixed();
 
   /*---------------------
@@ -717,7 +958,7 @@ $(document).ready(function () {
   --------------------------------------*/
 
   $(window).scroll(function () {
-    if ($(this).scrollTop() > 500) {
+    if ($(window).scrollTop() > 500) {
       $(".scroll-to-top").fadeIn(400);
 
     } else {
@@ -727,7 +968,7 @@ $(document).ready(function () {
 
   $(".scroll-to-top").on('click', function (event) {
     event.preventDefault();
-    $("html, body").animate({scrollTop: 0}, 600);
+    $("html, body").animate({scrollTop: 0}, 1000);
   });
 
 
@@ -855,11 +1096,11 @@ $('.close-box').on("click", function () {
     13. Tabs
 --------------------------------------*/
 
-$('.tabs_animate').tabslet({
-  mouseevent: 'click',
-  attribute: 'href',
-  animation: true
-});
+// $('.tabs_animate').tabslet({
+//   mouseevent: 'click',
+//   attribute: 'href',
+//   animation: true
+// });
 
 
 /*------------------------------------
