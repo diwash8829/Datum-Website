@@ -75,9 +75,14 @@
 
             </div>
             <div class="footer-bar">
-                <p><span>Datum Systems Pvt. Ltd.</span> © <span id="year" style="color: #fff"></span>. All Rights Reserved.
-                <span class="float-md-right float-sm-left">Designed & Developed By: <span style="color: white !important;">Diwash Joshi</span></span></p>
-
+                <div class="row">
+                    <div class="col-md-6 col-12 text-md-left text-center">
+                    <span>Datum Systems Pvt. Ltd. ©</span><span id="year"></span><span>. All Rights Reserved.</span>
+                    </div>
+                    <div class="col-md-6 col-12 text-md-right text-center">
+                    <span>Designed & Developed By: Diwash Joshi</span>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>

@@ -13,7 +13,6 @@ include('parts/navbar.php');
         </div>
     </div>
 
-
     <div class="section-block">
         <div class="container">
             <div class="section-heading">

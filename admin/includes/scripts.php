@@ -17,7 +17,13 @@
 
     <!-- Page level plugins -->
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <!-- <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
+
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/datatables.min.css"/> -->
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/datatables.min.js"></script>
+
+
 
   <script src="js/sweetalert.js"></script>
      <?php
@@ -118,6 +124,18 @@ var gallery_data = $('.delete-gallery-button').click(function(e){
       delete_records(countData);
   });
 
+  var career_data = $('.delete-career-button').click(function(e){
+      e.preventDefault();
+
+      var delete_id = $(this).closest('tr').find('.delete-career-id').val();
+
+      var countData = {
+      "check_delete_career_btn": 1,
+      "delete_id": delete_id, };
+
+      delete_records(countData);
+  });
+
 
 function delete_records(countData){
 
@@ -154,7 +172,6 @@ function delete_records(countData){
       
     })
 }
-
 });
 
   </script>
@@ -168,6 +185,13 @@ function delete_records(countData){
     $(document).ready(function() {
     $('#dataTable').DataTable( {
         "order": [[ 0, "desc" ]]
+    } );
+    $('#dataTable1').DataTable( {
+        "order": [[ 0, "desc" ]],
+         dom: '<"row"<"col-sm-4"l><"col-sm-4"B><"col-sm-4"f>>rt<"float-left"i><"float-right"p>',
+        buttons: [
+            'copy', 'csv', 'excel', 'print'
+        ]
     } );
 } );
 

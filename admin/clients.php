@@ -34,6 +34,7 @@ include('includes/navbar.php');
         <div class="form-group">
             <label>Upload Image </label>
             <input type="file" name="clients-image" id="clients-image" class="form-control" >
+            <small style="color: red">NOTE: Only JPG,PNG and JPEG allowed.</small>
         </div>
       </div>
       <div class="modal-footer">

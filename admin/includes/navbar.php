@@ -4,20 +4,9 @@
      ?>
 
      <style type="text/css">
-     
-     .gmail:hover
+     .slack:hover
      {
-      text-decoration: none !important;
-     }
-
-     .gmail img:hover
-     {
-      background-color: #b62416 !important;
-     }
-
-     .tawk img:hover
-     {
-      background-color: #cccccc !important;
+      background-color: #621c63 !important;
      }
      </style>
 <!-- Sidebar -->
@@ -87,10 +76,17 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="career.php">
-          <i class="fas fa-desktop"></i>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+          <i class="fas fa-newspaper"></i>
           <span>Careers</span>
         </a>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Careers Section:</h6>
+            <a class="collapse-item" href="career.php">Post a Vacancy</a>
+            <a class="collapse-item" href="career-applied.php">View Candidates</a>
+          </div>
+        </div>
       </li>
 
     </div>
@@ -125,18 +121,18 @@
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-
           <div class="pl-2">
-          <a href="#" class="btn btn-primary btn-circle btn-lg">
+          <a href="#" class="btn btn-primary btn-circle btn-md">
           <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="#" class="gmail px-3">
-          <img src="https://cdn2.iconfinder.com/data/icons/social-icons-circular-color/512/gmail-512.png"
-          style="height: 56px; width: 56px; border-radius: 50%;" class="bg-danger">
+          <a href="#" class="btn btn-circle btn-md ml-3 slack" style="background-color: #762277; color: #fff">
+          <i class="fab fa-slack"></i>
           </a>
-          <a class="tawk" href="#">
-          <img src="https://www.tawk.to/wp-content/uploads/2020/04/tawky.png"
-          style="height: 56px; width: 56px; border-radius: 50%; border: 1px solid #204b7b">
+          <a href="#" class="btn btn-circle btn-danger btn-md mx-3">
+          <i class="fas fa-envelope"></i>
+          </a>
+          <a href="#" class="btn btn-circle btn-success btn-md">
+          <i class="fas fa-headset"></i>
           </a>
         </div>
 

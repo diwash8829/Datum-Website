@@ -34,6 +34,7 @@ if (isset($_POST['edit_btn']))
         <div class="form-group">
             <label>Upload Image</label>
             <input type="file" name="gallery-image" id="gallery-image" class="form-control" value="<?php echo $row['image'];?>">
+            <small style="color: red">NOTE: Only JPG,PNG and JPEG allowed.</small>
         </div>
         <a href="gallery.php" class="btn btn-danger">Cancel</a>
         <button type="submit" name="update-gallery-btn" class="btn btn-primary">Update</button>

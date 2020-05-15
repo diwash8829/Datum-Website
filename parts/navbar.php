@@ -32,7 +32,7 @@
                     </ul>
                 </div>
                 <div class="col-md-2 col-12">
-                    <a href="career.php" class="login text-white pr-3 pl-3">Career</a>
+                    <a href="career.php" class="login text-white pr-3 pl-3">Careers</a>
                     <a href="faq.php" class="login text-white pr-3">FAQ's</a>
                 </div>
 
@@ -71,7 +71,7 @@
 
                     <li><a href="faq.php" class="login d-block d-lg-none">FAQ's</a></li>
 
-                    <li><a href="career.php" class="login d-block d-lg-none">Career</a></li>
+                    <li><a href="career.php" class="login d-block d-lg-none">Careers</a></li>
                 </ul>
             </div>
         </nav>

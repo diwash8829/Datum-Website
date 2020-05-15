@@ -137,7 +137,7 @@ include('parts/navbar.php');
                             <input class="input--style-1" type="text" id="bemail_check" placeholder="BUSINESS EMAIL" name="email">
                         </div>
                         <div class="p-t-20">
-                            <button class="button-md primary-button" type="submit" id="submitdemo" name="submit_demo_btn">Submit</button>
+                            <button class="button-md primary-button" style="cursor: pointer;" type="submit" id="submitdemo" name="submit_demo_btn">Submit</button>
                         </div>
                         <small id="demo-msg" class="text-success" style="font-size: 12px; font-weight: 600"></small>
                     </form>

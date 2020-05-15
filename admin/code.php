@@ -1,6 +1,3 @@
-
-<!-- register page -->
-
 <?php 
 include('security.php');
 
@@ -126,6 +123,12 @@ if (isset($_POST['register-clients-btn']))
 	$type = $_POST['type'];
 	$image = $_FILES['clients-image']['name'];
 
+	$img_type = array('image/jpg','image/png','image/jpeg');
+	$img_extension = in_array($_FILES['clients-image']['type'], $img_type);
+
+	if($img_extension)
+	{
+
 	if (file_exists("upload/clients/" . $_FILES['clients-image']['name'])) 
 	{
 		$store = $_FILES['clients-image']['name'];
@@ -158,6 +161,15 @@ if (isset($_POST['register-clients-btn']))
 
 }
 
+else
+{
+	    $_SESSION['status'] = "Only JPG, PNG and JPEG allowed. Choose another.";
+    	$_SESSION['status_code'] = "error";
+    	header('Location: clients.php');
+}
+
+}
+
 
 if (isset($_POST['update-clients-btn'])) 
 {
@@ -165,6 +177,12 @@ if (isset($_POST['update-clients-btn']))
 	$name = $_POST['edit_name'];
 	$type = $_POST['edit_type'];
 	$image = $_FILES['clients-image']['name'];
+
+	$img_type = array('image/jpg','image/png','image/jpeg');
+	$img_extension = in_array($_FILES['clients-image']['type'], $img_type);
+
+	if($img_extension)
+	{
 
 	$clients_query = "select * from clients where id = '$id'";
 	$clients_query_run = mysqli_query($connection,$clients_query);
@@ -213,6 +231,15 @@ if (isset($_POST['update-clients-btn']))
     	header('Location: clients.php');
 	}
 
+	}
+
+else
+{
+	    $_SESSION['status'] = "Only JPG, PNG and JPEG allowed. Choose another.";
+    	$_SESSION['status_code'] = "error";
+    	header('Location: clients.php');
+}
+
 	
 }
 
@@ -248,6 +275,12 @@ if (isset($_POST['register-testmonials-btn']))
 	$message = $connection -> real_escape_string($_POST['message']);
 	$image = $_FILES['testmonials-image']['name'];
 
+	$img_type = array('image/jpg','image/png','image/jpeg');
+	$img_extension = in_array($_FILES['testmonials-image']['type'], $img_type);
+
+	if($img_extension)
+	{
+
 	if (file_exists("upload/testmonials/" . $_FILES['testmonials-image']['name'])) 
 	{
 		$store = $_FILES['testmonials-image']['name'];
@@ -277,6 +310,14 @@ if (isset($_POST['register-testmonials-btn']))
     }
 
 }
+}
+
+else
+{
+	    $_SESSION['status'] = "Only JPG, PNG and JPEG allowed. Choose another.";
+    	$_SESSION['status_code'] = "error";
+    	header('Location: testmonials.php');
+}
 
 }
 
@@ -288,6 +329,12 @@ if (isset($_POST['update-testmonials-btn']))
 	$address = $_POST['edit_address'];
 	$message = $connection -> real_escape_string($_POST['edit_message']);
 	$image = $_FILES['testmonials-image']['name'];
+
+	$img_type = array('image/jpg','image/png','image/jpeg');
+	$img_extension = in_array($_FILES['testmonials-image']['type'], $img_type);
+
+	if($img_extension)
+	{
 
 	$testmonials_query = "select * from testmonials where id = '$id'";
 	$testmonials_query_run = mysqli_query($connection,$testmonials_query);
@@ -335,7 +382,14 @@ if (isset($_POST['update-testmonials-btn']))
     	$_SESSION['status_code'] = "error";
     	header('Location: testmonials.php');
 	}
+}
 
+else
+{
+	    $_SESSION['status'] = "Only JPG, PNG and JPEG allowed. Choose another.";
+    	$_SESSION['status_code'] = "error";
+    	header('Location: testmonials.php');
+}
 	
 }
 
@@ -361,12 +415,16 @@ if (isset($_POST['check_delete_testmonials_btn']))
 
 // -----------------------------------Gallery------------------------------------------------------//
 
-
-
 if (isset($_POST['register-gallery-btn'])) 
 {
 	$description = $connection -> real_escape_string($_POST['description']);
 	$image = $_FILES['gallery-image']['name'];
+
+	$img_type = array('image/jpg','image/png','image/jpeg');
+	$img_extension = in_array($_FILES['gallery-image']['type'], $img_type);
+
+	if($img_extension)
+	{
 
 	if (file_exists("upload/gallery/" . $_FILES['gallery-image']['name'])) 
 	{
@@ -400,12 +458,27 @@ if (isset($_POST['register-gallery-btn']))
 
 }
 
+else
+{
+	    $_SESSION['status'] = "Only JPG, PNG and JPEG allowed. Choose another.";
+    	$_SESSION['status_code'] = "error";
+    	header('Location: gallery.php');
+}
+
+}
+
 
 if (isset($_POST['update-gallery-btn'])) 
 {
 	$id = $_POST['edit_id'];
 	$description = $connection -> real_escape_string($_POST['edit_description']);
 	$image = $_FILES['gallery-image']['name'];
+
+	$img_type = array('image/jpg','image/png','image/jpeg');
+	$img_extension = in_array($_FILES['gallery-image']['type'], $img_type);
+
+	if($img_extension)
+	{
 
 	$gallery_query = "select * from gallery where id = '$id'";
 	$gallery_query_run = mysqli_query($connection,$gallery_query);
@@ -453,6 +526,15 @@ if (isset($_POST['update-gallery-btn']))
     	$_SESSION['status_code'] = "error";
     	header('Location: gallery.php');
 	}
+
+}
+
+else
+{
+	    $_SESSION['status'] = "Only JPG, PNG and JPEG allowed. Choose another.";
+    	$_SESSION['status_code'] = "error";
+    	header('Location: gallery.php');
+}
 
 	
 }
@@ -542,6 +624,86 @@ if (isset($_POST['check_delete_faqs_btn']))
 			$query_run = mysqli_query($connection,$query);
 }
 
+
+
+
+// ---------------------------Career----------------------------------------
+
+
+
+
+	if (isset($_POST['register-career-btn'])) 
+{
+	$position = $_POST['position'];
+	$opening = $_POST['opening'];
+	$level = $_POST['level'];
+	$type = $_POST['type'];
+	$salary = $_POST['salary'];
+	$experience = $_POST['experience'];
+	$skills = $_POST['skills'];
+	$description = $connection -> real_escape_string($_POST['description']);
+
+	$query = "Insert into career (position,opening,level,type,salary,experience,skills,description) values (trim('$position'),trim('$opening'),'$level','$type',trim('$salary'),trim('$experience'),trim('$skills'),trim('$description'))";
+	$query_run = mysqli_query($connection,$query);
+    
+    if ($query_run) 
+    {
+    	$_SESSION['status'] = "Vacancy Successfully Added";
+    	$_SESSION['status_code'] = "success";
+    	header('Location: career.php');
+    }
+    else
+    {
+    	$_SESSION['status'] = "Vacancy Not Added";
+    	$_SESSION['status_code'] = "error";
+    	header('Location: career.php');	
+    }
+
+}
+
+
+
+if (isset($_POST['update-career-btn'])) 
+{
+	$id = $_POST['edit_id'];
+	$position = $_POST['edit_position'];
+	$opening = $_POST['edit_opening'];
+	$level = $_POST['edit_level'];
+	$type = $_POST['edit_type'];
+	$salary = $_POST['edit_salary'];
+	$experience = $_POST['edit_experience'];
+	$skills = $_POST['edit_skills'];
+	$description = $connection -> real_escape_string($_POST['edit_description']);
+
+	$query = "update career set position = trim('$position'), opening = trim('$opening'), level = '$level', type = '$type', salary = trim('$salary'), experience = trim('$experience'), skills = trim('$skills'), description = trim('$description') where id = '$id'";
+	$query_run = mysqli_query($connection,$query);
+
+	if ($query_run) 
+	{
+	   	$_SESSION['status'] = "Vacancy Successfully Updated";
+    	$_SESSION['status_code'] = "success";
+    	header('Location: career.php');
+	}
+
+	else
+	{
+		$_SESSION['status'] = "Vacancy Not Updated";
+    	$_SESSION['status_code'] = "error";
+    	header('Location: career.php');
+	}
+
+	
+}
+
+
+if (isset($_POST['check_delete_career_btn'])) 
+{
+	$delete_id = $_POST['delete_id'];
+
+			unlink($img_path);
+			$query = "delete from career where id = '$delete_id'";
+			$query_run = mysqli_query($connection,$query);
+}
 
 
 

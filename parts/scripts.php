@@ -25,12 +25,35 @@
     });
     </script>
 
+    <script type="text/javascript">
+        
+$(function() {
+  $(".career-form").submit(function(event) {
+    $('.career-submit').html('Wait...');
+    $('.career-submit').css('cursor','not-allowed');
+    $(this).find('.oooo').attr('disabled','disabled');
+
+    $('.career-submit').click(function() {
+
+    $('.career-submit').attr('disabled','disabled');
+    return true;
+
+});
+
+  });
+});
+
+
+    </script>
 
 
 
 </body>
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
+
+        $("#year").text(new Date().getFullYear());
+        
         var Tawk_API = Tawk_API || {},
             Tawk_LoadStart = new Date();
         (function() {

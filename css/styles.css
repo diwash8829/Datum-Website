@@ -7925,6 +7925,7 @@ footer h3:after {
     transition: all .4s ease;
     margin-top: 15px;
     outline: none;
+    cursor: pointer;
 }
 
 .contact-form button:hover {

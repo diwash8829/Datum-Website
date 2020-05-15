@@ -21,7 +21,7 @@ include('includes/navbar.php');
           <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-4 col-md-6 mb-4">
+            <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -43,23 +43,22 @@ include('includes/navbar.php');
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      <i class="fas fa-users fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-4 col-md-6 mb-4">
+            <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Contact Us Messages</div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Contact messages</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        
-                      <?php
+
+                        <?php
                         $query = "select id from contact order by id";
                         $query_run = mysqli_query($connection,$query);
 
@@ -73,19 +72,21 @@ include('includes/navbar.php');
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      <i class="fas fa-id-card fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-             <div class="col-xl-4 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-secondary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total TrustAMl Demo Scheduled</div>
+                      <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Total Demo Scheduled</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
                         
                       <?php
@@ -102,13 +103,44 @@ include('includes/navbar.php');
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      <i class="fas fa-desktop fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+             <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Trustaml Clients</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        
+                      <?php
+                        $query = "select id from clients order by id";
+                        $query_run = mysqli_query($connection,$query);
+
+                        $row = mysqli_num_rows($query_run);
+
+                        echo '<h1> '.$row.' </h1>';
+
+
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-users fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>            
           </div>
+
+
 
           <!-- Content Row -->
 
@@ -118,43 +150,134 @@ include('includes/navbar.php');
         <div class="container-fluid">
           <div class="row">
 
-      <div class="col-xl-4 col-md-6">
-              <div class="card border-left-success shadow">
-                <div class="card-body p-0 d-flex justify-content-center">
-                  <div class="row no-gutters ">
-                    <div class="col ">
-                      <iframe src="https://www.hamropatro.com/widgets/calender-medium.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:100%; height:375px;" allowtransparency="true"></iframe>
-                  </div>
-                </div>
-              </div>
-            </div> 
-        </div>
-
-      <div class="col-xl-4 col-md-6">
-              <div class="card border-left-success shadow">
-                <div class="card-body p-0">
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
                   <div class="row no-gutters align-items-center">
-                    <div class="col">
-                      <iframe src="https://www.ashesh.com.np/rashifal/widget.php?header_title=Nepali Rashifal&header_color=f0b03f&api=732048j511" frameborder="0" scrolling="yes" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:100%; height:375px; border-radius:5px;" allowtransparency="true">
-                      </iframe>
-                  </div>
-                </div>
-              </div>
-            </div> 
-        </div>
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Testmonials</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
 
-        <div class="col-xl-4 col-md-6">
-              <div class="card border-left-success shadow h-100">
-                <div class="card-body p-0">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col">
-                      <iframe src="https://www.ashesh.com.np/forex/widget2.php?api=722248j514" frameborder="0" scrolling="yes" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:100%; height:375px; border-radius:5px;" allowtransparency="true">
-                      </iframe>
+                        <?php
+                        $query = "select id from testmonials order by id";
+                        $query_run = mysqli_query($connection,$query);
+
+                        $row = mysqli_num_rows($query_run);
+
+                        echo '<h1> '.$row.' </h1>';
+
+
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-user fa-2x text-gray-300"></i>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div> 
-        </div>
+            </div>
+
+
+<div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Gallery Images</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+
+                        <?php
+                        $query = "select id from gallery order by id";
+                        $query_run = mysqli_query($connection,$query);
+
+                        $row = mysqli_num_rows($query_run);
+
+                        echo '<h1> '.$row.' </h1>';
+
+
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-images fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+<div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-secondary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Total FAQ's</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+
+                        <?php
+                        $query = "select id from faqs order by id";
+                        $query_run = mysqli_query($connection,$query);
+
+                        $row = mysqli_num_rows($query_run);
+
+                        echo '<h1> '.$row.' </h1>';
+
+
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-question fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+<div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Vacancy Posted / Total Candidates</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+
+                        <?php
+                        $query = "select id from career order by id";
+                        $query1 = "select id from fend_career order by id";
+                        $query_run = mysqli_query($connection,$query);
+                        $query_run1 = mysqli_query($connection,$query1);
+
+                        $row = mysqli_num_rows($query_run);
+                        $row1 = mysqli_num_rows($query_run1);
+
+                        echo '<h1> '.$row.' / '.$row1.' </h1>';
+
+
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-newspaper fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+      
+
+      
+
+       
 
       </div>
         <!-- /.container-fluid -->

@@ -24,7 +24,7 @@ include('includes/navbar.php');
         </div>
         <div class="form-group">
             <label>Total No. of Openings</label>
-            <input type="text" name="openings" class="form-control" placeholder="Enter number of job openings">     
+            <input type="text" name="opening" class="form-control" placeholder="Enter number of job openings">     
         </div>
         <div class="form-group">
         <label for="exampleFormControlSelect1">Job Level</label>
@@ -56,10 +56,11 @@ include('includes/navbar.php');
             <label>Skills Needed</label>
             <input type="text" name="skills" class="form-control" placeholder="Enter needed skills">     
         </div>
+
         <div class="form-group">
             <label>Job Description</label>
-            <textarea name="description" class="form-control" rows="10">
-<ul class="job-roles">
+            <small style="color: red">NOTE: Don't modify this format.</small>
+            <textarea name="description" class="form-control" rows="11">
 <li></li>
 <li></li>
 <li></li>
@@ -67,8 +68,7 @@ include('includes/navbar.php');
 <li></li>
 <li></li>
 <li></li>
-<li></li>                                        
-</ul>              
+<li></li>                                                   
              </textarea>     
         </div>
       </div>
