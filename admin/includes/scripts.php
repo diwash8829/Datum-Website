@@ -26,6 +26,7 @@
 
 
   <script src="js/sweetalert.js"></script>
+  
      <?php
           if (isset($_SESSION['status']) && $_SESSION['status'] !='') 
           {

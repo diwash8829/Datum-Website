@@ -1,17 +1,15 @@
 <?php
-include('parts/header.php');
-include('parts/navbar.php');
+// See the password_hash() example to see where this came from.
+$a = 'aaaaaa';
+
+$b = password_hash($a, PASSWORD_DEFAULT);
+echo $b;
+
+$hash = '$2y$10$q/emCtg6ABO.qiYQY43rpO7wZTe7qjnRJcFNsnUlZTc';
+
+if (password_verify($a, $hash)) {
+    echo 'Password is valid!';
+} else {
+    echo 'Invalid password.';
+}
 ?>
-
-
-
-
-<form action="mail.php" method="post">
-<input type="submit" name="mail_go">submit
-</form>
-
-
- <?php
-        include('parts/footer.php');
-        include('parts/scripts.php');
-    ?>

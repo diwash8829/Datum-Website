@@ -15,7 +15,7 @@
 }
 @media screen and (max-width:767px) {
   .swiper-container {
-    height: auto;
+    height: 75%;
   }
 }
 .swiper-slide {

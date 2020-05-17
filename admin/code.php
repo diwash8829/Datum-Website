@@ -17,6 +17,7 @@ if (isset($_POST['registerbtn']))
 	$username = $_POST['username'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
+	$pass_enc = password_hash($password, PASSWORD_BCRYPT);
 	$cpassword = $_POST['confirmpassword'];
 
 	$email_query = "select * from register where email = '$email'";
@@ -31,7 +32,7 @@ if (isset($_POST['registerbtn']))
 	{
 	if($password === $cpassword)
 	{
-	$query = "Insert into register (name,email,password) values (trim('$username'),trim('$email'),trim('$password'))";
+	$query = "Insert into register (name,email,password) values (trim('$username'),trim('$email'),'$pass_enc')";
 	$query_run = mysqli_query($connection,$query);
     
     if ($query_run) 
@@ -64,8 +65,9 @@ if (isset($_POST['updatebtn']))
 	$username = $_POST['edit_username'];
 	$email = $_POST['edit_email'];
 	$password = $_POST['edit_password'];
+	$pass_enc = password_hash($password, PASSWORD_DEFAULT);
 
-	$query = "update register set name = 'trim($username'), email = trim('$email') , password = trim('$password') where id = '$id'";
+	$query = "update register set name = trim('$username'), email = trim('$email') , password = trim('$pass_enc') where id = '$id'";
 	$query_run = mysqli_query($connection,$query);
 
 	if ($query_run) 
@@ -92,26 +94,49 @@ if (isset($_POST['check_delete_btn']))
 }
 
 
+
 if (isset($_POST['login_btn'])) 
 {
 	$email_login = $_POST['email'];
 	$password_login = $_POST['password'];
 
-	$query = "select * from register where email='$email_login' and password='$password_login'";
-	$query_run = mysqli_query($connection,$query);
+	if(empty($email_login) || empty($password_login)  )
+      {  
+           $_SESSION['status'] = "Both the fields are required.";
+					header('Location: login.php');
+      } 
 
-	if (mysqli_fetch_array($query_run)) 
+    else
+    {
+
+	$query = "select * from register where email='$email_login'";
+	$query_run = mysqli_query($connection,$query);
+	$num_rows = mysqli_num_rows($query_run);
+
+	if ($num_rows == 1) 
 	{
-		$_SESSION['username'] = $email_login;
-		header('Location: index.php');
+		$row = mysqli_fetch_array($query_run);
+		$password_check = $row['password'];
+		
+		if (password_verify($password_login, $password_check)) 
+		{
+			$_SESSION['username'] = $email_login;
+			header('Location: index.php');		
+		}
+			else
+				{
+					$_SESSION['status'] = "Email or Password is incorrect";
+					header('Location: login.php');
+				}
 	}
+
 	else
 	{
 		$_SESSION['status'] = "Email or Password is incorrect";
 		header('Location: login.php');
 	}
 }
-
+}
 
 
 // ---------------------------------Clients-------------------------------------

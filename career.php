@@ -73,7 +73,7 @@ include('parts/navbar.php');
                                         <li><span>Salary</span><span class="job">:</span>'.$result['salary'].'</li>
                                         <li><span>Experience</span><span class="job">:</span>'.$result['experience'].'</li>
                                         <li><span>Skills</span><span class="job">:</span>'.$result['skills'].'</li>
-                                        <li><span>Roles & Responsibilities</span><span class="job">:</span></li>
+                                        <li><span>Roles & <br> Responsibilities</span><span class="job">:</span></li>
                                     </ul>
                                     <ul class="job-roles">
                                     '.$result['description'].'
@@ -113,11 +113,11 @@ include('parts/navbar.php');
         </div>
         <div class="form-group">
             <label>Upload Latest Resume <sup><i class="fa fa-asterisk text-danger" style="font-size: 8px;"></i></sup></label>
-            <input type="file" name="resume" class="form-control" required accept="application/pdf">
+            <input type="file" name="resume" class="form-control" required accept="application/pdf" style="padding-top : 3px;">
             <small style="color: red">NOTE: Only PDF Allowed & Max. size: 1MB</small>
         </div>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer justify-content-start">
         <button type="button" class="btn btn-secondary oooo" data-dismiss="modal">Close</button>
         <button type="submit" name="register-career-btn" class="btn btn-primary career-submit">Apply</button>
       </div>

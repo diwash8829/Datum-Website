@@ -33,7 +33,7 @@ include('includes/header.php');
                       <input type="email" class="form-control form-control-user" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" name="password" placeholder="Password">
+                      <input type="password" class="form-control form-control-user" name="password" placeholder="Enter Password...">
                     </div>
                     <div class="form-group">
                     </div>
@@ -53,6 +53,3 @@ include('includes/header.php');
 
 
 
-<?php
-include('includes/scripts.php');
-?>
